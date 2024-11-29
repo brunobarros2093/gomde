@@ -1,5 +1,6 @@
-#  [wip] gomde (Go Markdown Editor) is a really simple markdown editor made with Golang and Fyne
+#  GOmde (Go Markdown Editor) is a really simple markdown editor made with Golang and Fyne
 
+Status: wip 
 
 This version: This project is open-source; just made for fun; to play with Golang. 
 
