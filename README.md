@@ -4,6 +4,9 @@
 
 This version: This project is open-source; just made for fun; to play with Golang. 
 
+Working on:
+- Publish BTN -> direct to GIT
+- Rich Text Visual Editor
 
 I gonna use this to write my posts together with [marmite](https://github.com/rochacbruno/marmite)
 
