@@ -16,5 +16,16 @@ I gonna use this to write my posts together with [marmite](https://github.com/ro
 
 ![Menu](public/prints/menu.png)
 
+# How to use 
+
+> Unzip GOmde.tar.xz file 
+> Execute ./usr/local/bin/gomde 
+
+# Build with Fyne 
+
+You should have Golang in your Path. 
+
+> fyne package -appVersion 1.0.1 -name GOmde -release -icon icon.png
+
 
 *First version that I see of app like this was built in a workshop by Trevor Sawler;
