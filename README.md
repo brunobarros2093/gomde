@@ -5,6 +5,8 @@ This version: I built on top of Trevor's versions, this project is open-source; 
 
 I gonna use it to work together with [marmite](https://github.com/rochacbruno/marmite)
 
-[Test texts](prints/savePedro.png)
-[Suffix](prints/prints.png)
-[Menu](prints/menu.png)
+![savePedro](https://raw.githubusercontent.com/brunobarros2093/gomde/refs/heads/main/prints/savePedro.png)
+
+![Suffix](prints/prints.png)
+
+![Menu](prints/menu.png)
