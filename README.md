@@ -10,11 +10,11 @@ Working on:
 
 I gonna use this to write my posts together with [marmite](https://github.com/rochacbruno/marmite)
 
-![savePedro](https://raw.githubusercontent.com/brunobarros2093/gomde/refs/heads/main/prints/savePedro.png)
+![savePedro](https://raw.githubusercontent.com/brunobarros2093/gomde/refs/heads/main/public/prints/savePedro.png)
 
-![Suffix](prints/prints.png)
+![Suffix](public/prints/prints.png)
 
-![Menu](prints/menu.png)
+![Menu](public/prints/menu.png)
 
 
 *First version that I see of app like this was built in a workshop by Trevor Sawler;
