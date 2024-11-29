@@ -2,7 +2,7 @@
 
 Status: wip 
 
-This version: This project is open-source; just made for fun; to play with Golang. 
+This version: This project is open-source but; just made for fun to play with Golang; personal; 
 
 Working on:
 - Publish BTN -> direct to GIT
