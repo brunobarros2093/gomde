@@ -2,11 +2,13 @@ package main
 
 import (
 	"io"
+	"strings"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/dialog"
+	"fyne.io/fyne/v2/storage"
 	"fyne.io/fyne/v2/widget"
 )
 
@@ -44,7 +46,7 @@ func (app *config) makeUI() (*widget.Entry, *widget.RichText) {
 
 func (app *config) createMenuItems(win fyne.Window) {
 	openMenuItem := fyne.NewMenuItem("Open menu", app.openFunc(win))
-	saveMenuItem := fyne.NewMenuItem("Save", func() {})
+	saveMenuItem := fyne.NewMenuItem("Save", app.saveFunc(win))
 	app.SaveMenuItem = saveMenuItem
 	app.SaveMenuItem.Disabled = true
 	saveAsMenuItem := fyne.NewMenuItem("Save as...", app.saveAsFunc(win))
@@ -53,6 +55,23 @@ func (app *config) createMenuItems(win fyne.Window) {
 	win.SetMainMenu(menu)
 
 }
+
+var filter = storage.NewExtensionFileFilter([]string{".md", ".MD"})
+
+func (app *config) saveFunc(win fyne.Window) func() {
+	return func() {
+		if app.CurrentFile != nil {
+			write, err := storage.Writer(app.CurrentFile)
+			if err != nil {
+				dialog.ShowError(err, win)
+				return
+			}
+			write.Write([]byte(app.EditWidget.Text))
+			defer write.Close()
+		}
+	}
+}
+
 func (app *config) openFunc(win fyne.Window) func() {
 	return func() {
 		openDialog := dialog.NewFileOpen(func(read fyne.URIReadCloser, err error) {
@@ -75,6 +94,7 @@ func (app *config) openFunc(win fyne.Window) func() {
 			app.SaveMenuItem.Disabled = false
 
 		}, win)
+		openDialog.SetFilter(filter)
 		openDialog.Show()
 	}
 }
@@ -89,12 +109,18 @@ func (app *config) saveAsFunc(win fyne.Window) func() {
 				// user cancelou acao
 				return
 			}
+			if !strings.HasSuffix(strings.ToLower(write.URI().String()), ".md") {
+				dialog.ShowInformation("Error", "Suffix your file with .md extension!", win)
+				return
+			}
 			write.Write([]byte(app.EditWidget.Text))
 			app.CurrentFile = write.URI()
 			defer write.Close()
 			win.SetTitle(win.Title() + " - " + write.URI().Name())
 			app.SaveMenuItem.Disabled = false
 		}, win)
+		saveDialog.SetFileName("untitled.md")
+		saveDialog.SetFilter(filter)
 		saveDialog.Show()
 	}
 }
