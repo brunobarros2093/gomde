@@ -8,7 +8,7 @@ Working on:
 - Publish BTN -> direct to GIT
 - Rich Text Visual Editor
 
-I gonna use this to write my posts together with [marmite](https://github.com/rochacbruno/marmite)
+I gonna use this to write my posts together with [marmite](https://github.com/rochacbruno/marmite) (Static Site Generator for Blogs built in Rust by @rochacbruno)
 
 ![savePedro](https://raw.githubusercontent.com/brunobarros2093/gomde/refs/heads/main/public/prints/savePedro.png)
 
